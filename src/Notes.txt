@@ -24,3 +24,8 @@ Steps
 1. Dynamically import components using react lazy and dynamic imports which is a modern
    javascript feature.
 
+===========
+
+React Error boundar with react-error-boundary package.
+=========================
+- To effectively handle errors in a react application.
