@@ -1,6 +1,7 @@
 import React from 'react'
+import { ErrorBoundary } from 'react-error-boundary'
 import { ClickCounter } from './ClickCounter'
-import { ErrorBoundary } from './ErrorBoundary'
+import { Fallback } from './Fallback'
 import { Person } from './Person'
 
 /**
@@ -10,15 +11,27 @@ import { Person } from './Person'
  * 
  * React team make it possible with version 16 with introduction of error boundaries.
  */
+
+/**
+ * ErrorBoundary component from react-error-boundary will accept two props
+ *  1. FallbackComponent -> accept a component which should be render when there is an error
+ *                          in our component tree.
+ * 
+ * 2. onError -> error handler
+ */
 export const AppErr = () => {
     const person = {
         firstName: 'Bruce',
         lastName: 'Wayne'
     }
 
+    //this handler will automatically receives error and errorInfo
+    const errorHandler = (error: any, errorInfo: any) => {
+        console.log("Logging", error, errorInfo);
+    }
     return (
         <div>
-            <ErrorBoundary>
+            <ErrorBoundary FallbackComponent={Fallback} onError={errorHandler}>
                 <Person person={person} />
                 <ClickCounter />
             </ErrorBoundary>
