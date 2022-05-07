@@ -23,3 +23,4 @@ Create-react-app with its webpack config support code splitting out of the box.
 Steps 
 1. Dynamically import components using react lazy and dynamic imports which is a modern
    javascript feature.
+
