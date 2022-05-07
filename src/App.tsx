@@ -20,6 +20,11 @@ import { Home } from './components/code-splitting/Home';
  * Note- only with this configuration, if we try to run the app, we will see a error.
  * A react component suspended while rendering, but no fallback UI was specified.
  * To fix this error, we have to use the suspense component from react
+ * 
+ * Dynamic import is asynchronous and hence the loading fallback is rendered
+ * while resource is downloaded in the background.
+ * 
+ * fallback will take any jsx.
  */
 
 const LazyProfile = React.lazy(() => import('./components/code-splitting/Profile'));
@@ -29,9 +34,11 @@ function App() {
   return (<>
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='profile' element={<LazyProfile />} />
-        <Route path='dashboard' element={<LazyDashboard />} />
+        <React.Suspense fallback='Loading...'>
+          <Route path='/' element={<Home />} />
+          <Route path='profile' element={<LazyProfile />} />
+          <Route path='dashboard' element={<LazyDashboard />} />
+        </React.Suspense>
       </Routes>
     </BrowserRouter>
   </>)
