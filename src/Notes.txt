@@ -1,0 +1,25 @@
+Code Splitting
+====
+
+Traditionally, all the components in a react application would be bundled into one
+single file called bundle.js.
+
+This allow the browser to download the entire app once so that the user can navigate
+seamlessly without having the need to make another HTTP request to the server.
+
+As the application grew in size and more third party packages were installed, the bundle size
+bloted up causing the app to have a long initial load time.
+
+A single bundle file is split into smaller once and the user will only download the code that 
+they need.
+
+Code spitting === Incrementally downloading the application.
+
+Since user doesn't need to download the entire application when all they need is 
+a part of it for initial landing page.
+
+Create-react-app with its webpack config support code splitting out of the box.
+
+Steps 
+1. Dynamically import components using react lazy and dynamic imports which is a modern
+   javascript feature.
