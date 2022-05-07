@@ -1,5 +1,6 @@
 import React from 'react'
 import { ClickCounter } from './ClickCounter'
+import { ErrorBoundary } from './ErrorBoundary'
 import { Person } from './Person'
 
 /**
@@ -17,8 +18,10 @@ export const AppErr = () => {
 
     return (
         <div>
-            <Person person={person} />
-            <ClickCounter />
+            <ErrorBoundary>
+                <Person person={person} />
+                <ClickCounter />
+            </ErrorBoundary>
         </div>
     )
 }

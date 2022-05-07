@@ -5,6 +5,18 @@ import { Component } from 'react'
  * from error lifecycle method or componentDidCatch lifecycle method.
  */
 
+/**
+ * This way of implement Error Boundary will not display the fallback if the error
+ * is coming from asynchronous and event handling and there are also other limitation.
+ * Refer docs.
+ * 
+ * This is where, react-error-boundary library comes handy.
+ * 
+ * This library provides a wrapper component similar to our own error boundary component
+ * but it simplifies the process and allows us to handle errors thrown from event handlers
+ * and async events.
+ */
+
 type ErrorBoundaryProps = {
     children: React.ReactNode;
 }
