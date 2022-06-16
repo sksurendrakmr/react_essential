@@ -1,4 +1,4 @@
-import { Component } from 'react'
+import { Component, ErrorInfo } from 'react'
 
 /**
  * This component to be an error boundary, we need to implement either getDerivedState
@@ -39,9 +39,9 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
         }
     }
 
-    componentDidCatch(error: any, errInfo: any) {
+    componentDidCatch(error: Error, errInfo: ErrorInfo) {
         //usually send the error message to logging service
-        console.log('Logging', error, errInfo);
+        console.log('Logging', error.message, errInfo);
 
     }
 
