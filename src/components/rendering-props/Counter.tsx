@@ -7,7 +7,7 @@ import React, { useState } from 'react'
  */
 
 type CounterProps = {
-    render: (count: number, incrementCount: () => void) => React.ReactNode;
+    children: (count: number, incrementCount: () => void) => React.ReactNode;
 }
 
 export const Counter = (props: CounterProps) => {
@@ -19,7 +19,7 @@ export const Counter = (props: CounterProps) => {
 
     return (
         <div>
-            {props.render(count, incrementCount)}
+            {props.children(count, incrementCount)}
         </div>
     )
 }
