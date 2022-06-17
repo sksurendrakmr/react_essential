@@ -21,4 +21,4 @@ class HoverCounter extends Component<HoverCounterProps, HoverCounterState> {
     }
 }
 
-export default withCounter(HoverCounter);
+export default withCounter(HoverCounter, 4);

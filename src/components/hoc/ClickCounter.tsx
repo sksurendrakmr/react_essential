@@ -17,4 +17,4 @@ class ClickCounter extends Component<ClickCounterProps> {
   }
 }
 
-export default withCounter(ClickCounter);
+export default withCounter(ClickCounter, 3);
