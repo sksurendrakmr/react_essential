@@ -1,6 +1,6 @@
 import React from "react";
-import { ClickCounter } from "./ClickCounter";
-import { HoverCounter } from "./HoverCounter";
+import ClickCounter from "./ClickCounter";
+import HoverCounter from "./HoverCounter";
 
 /**
  * To resuse the functionality

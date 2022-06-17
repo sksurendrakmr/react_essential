@@ -1,33 +1,20 @@
 import React, { Component } from "react";
+import withCounter from "./withCounter";
 
-type ClickCounterProps = {};
-type ClickCounterState = {
+type ClickCounterProps = {
   count: number;
+  incrementCount: () => void;
 };
-export class ClickCounter extends Component<
-  ClickCounterProps,
-  ClickCounterState
-> {
-  constructor(props: ClickCounterProps) {
-    super(props);
-    this.state = {
-      count: 0,
-    };
-  }
-
-  incrementCount = () => {
-    // this.setState({ count: this.state.count + 1 })
-    this.setState(prevState => {
-      return { count: prevState.count + 1 }
-    });
-  };
+class ClickCounter extends Component<ClickCounterProps> {
   render() {
     return (
       <div>
-        <button onClick={this.incrementCount}>
-          Clicked {this.state.count} times
+        <button onClick={this.props.incrementCount}>
+          Clicked {this.props.count} times
         </button>
       </div>
     );
   }
 }
+
+export default withCounter(ClickCounter);
