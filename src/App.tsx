@@ -2,6 +2,7 @@ import React from 'react';
 import { AppCodeSplitting } from './components/code-splitting/AppCodeSplitting';
 import { AppErr } from './components/error-boundary/AppErr';
 import { AppHoc } from './components/hoc/AppHoc';
+import { AppRenderProps } from './components/rendering-props/AppRenderProps';
 
 
 function App() {
@@ -9,7 +10,8 @@ function App() {
     <>
       {/* <AppCodeSplitting /> */}
       {/* <AppErr /> */}
-      <AppHoc />
+      {/* <AppHoc /> */}
+      <AppRenderProps />
     </>
   )
 }

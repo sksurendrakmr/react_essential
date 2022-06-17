@@ -1,5 +1,8 @@
 import React from 'react'
-import { User } from './user'
+import { ClickCounter } from './ClickCounter'
+import { Counter } from './Counter'
+import { HoverCounter } from './HoverCounter'
+// import { User } from './user'
 
 /**
  * Why??
@@ -16,7 +19,9 @@ export const AppRenderProps = () => {
     return (
         <div>
             AppRenderProps
-            <User render={(isLoggedIn) => isLoggedIn ? "Suri" : "Guest"} />
+            {/* <User render={(isLoggedIn) => isLoggedIn ? "Suri" : "Guest"} /> */}
+            <Counter render={(count, incrementCount) => <ClickCounter count={count} incrementCount={incrementCount} />} />
+            <Counter render={(count, incrementCount) => <HoverCounter count={count} incrementCount={incrementCount} />} />
         </div>
     )
 }
