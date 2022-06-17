@@ -1,15 +1,10 @@
 import React, { Component } from "react";
+import { CounterProps } from "./ClickCounter";
 import withCounter from "./withCounter";
 
-type HoverCounterProps = {
-    count: number;
-    incrementCount: () => void;
-};
-type HoverCounterState = {
-    count: number;
-};
 
-class HoverCounter extends Component<HoverCounterProps, HoverCounterState> {
+
+class HoverCounter extends Component<CounterProps> {
     render() {
         return (
             <div>

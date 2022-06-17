@@ -23,7 +23,7 @@ import HoverCounter from "./HoverCounter";
 
 export const AppHoc = () => {
   return <div>
-    <ClickCounter name="suri" />
+    <ClickCounter />
     <HoverCounter />
   </div>;
 };

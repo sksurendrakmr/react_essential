@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import withCounter from "./withCounter";
 
-type ClickCounterProps = {
+export type CounterProps = {
   count: number;
   incrementCount: () => void;
 };
-class ClickCounter extends Component<ClickCounterProps> {
+class ClickCounter extends Component<CounterProps> {
   render() {
     return (
       <div>

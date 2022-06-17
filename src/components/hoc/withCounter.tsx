@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 /**
  * HOC accept a component as an argument.
@@ -17,31 +17,24 @@ import React from "react";
  * To pass a parameter to the hoc function.
  *
  */
-const withCounter = (WrappedComponent: any, incrementNumber: number) => {
-  class WithCounter extends React.Component {
-    constructor(props: any) {
-      super(props);
-      this.state = {
-        count: 0,
-      };
-    }
 
-    incrementCount = () => {
-      this.setState((prevState) => ({
-        count: prevState.count + incrementNumber,
-      }));
-    };
-    render() {
-      return (
-        <WrappedComponent
-          count={this.state.count}
-          incrementCount={this.incrementCount}
-          {...this.props}
-        />
-      );
-    }
-  }
-  return WithCounter;
+type WithCounterProps = {
+  count: number;
+  incrementCount: () => void;
 };
+function withCounter<T extends WithCounterProps>(
+  WrappedComponent: React.ComponentType<T>,
+  incrementNumber: number
+) {
+  return (props: Omit<T, keyof WithCounterProps>) => {
+    const [count, setCount] = useState(0);
+
+    const incrementCount = () => {
+      setCount((prevCount) => prevCount + incrementNumber);
+    };
+
+    return <WrappedComponent {...(props as T)} count={count} incrementCount={incrementCount} />
+  };
+}
 
 export default withCounter;
