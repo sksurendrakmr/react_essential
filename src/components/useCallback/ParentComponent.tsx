@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import Button from './Button'
 import Count from './Count'
 import Title from './Title'
@@ -35,19 +35,34 @@ import Title from './Title'
  * (here, incrementSalary function) when we update the age.
  * 
  * Here we can make use of useCallback hook.
+ * 
+ * useCallback is a hook that will return a memoized version of the callback 
+ * function that only changes if one of the dependencies has changed.
+ * 
+ * So in our case, useCallback hook will cache the incrementSalary function and return that
+ * if salary is not incremented and if salary does incremented i.e. dependencies has change 
+ * then a new function will be returned.
+ * 
+ * Why useCallback?
+ * It is useful when passing callbacks to optimized child components that rely on reference equality
+ * to prevent unnecessary renders.
+ * 
+ * It is useful when passing callbacks.
+ * 
  */
 
 export const ParentComponent = () => {
     const [age, setAge] = useState(25)
     const [salary, setSalary] = useState(50000)
 
-    const incrementAge = () => {
+    const incrementAge = useCallback(() => {
         setAge(age + 1)
-    }
+    }, [age])
 
-    const incrementSalary = () => {
+    const incrementSalary = useCallback(() => {
         setSalary(salary + 1000)
-    }
+    }, [salary])
+
     return (
         <div>
             <Title />
