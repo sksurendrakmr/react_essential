@@ -1,7 +1,9 @@
 import React from 'react'
 
-export const Title = () => {
+const Title = () => {
     return (
         <h2>useCallback Hook</h2>
     )
 }
+
+export default React.memo(Title)
